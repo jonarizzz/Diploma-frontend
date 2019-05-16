@@ -11,4 +11,4 @@ Material UI (visual components), Axios (requests), React DOM router (routing) li
 
 ## Backend
 
-[GitHub backend link] (https://github.com/jonarizzz/Diploma-backend.git)
+[Backend](https://github.com/jonarizzz/Diploma-backend.git)
