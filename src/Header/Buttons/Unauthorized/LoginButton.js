@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import { withStyles, Button } from "@material-ui/core";
-
-const styles = {
-
-}
+import { Button } from "@material-ui/core";
 
 class LoginButton extends Component {
     render(){
@@ -15,4 +11,4 @@ class LoginButton extends Component {
     }
 }
 
-export default withStyles(styles)(LoginButton)
+export default LoginButton
