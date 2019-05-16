@@ -5,9 +5,16 @@ React JS REST-based application. Frontend part of diploma project (insurance com
 ## Application structure
 
 Header - static component with dynamic buttons and bars
+
 Body - dynamic content components loading into without page refreshment
 
-Material UI (visual components), Axios (requests), React DOM router (routing) libraries used
+## Libraries
+
+Material UI (visual components)
+
+Axios (requests)
+
+React DOM router (routing) libraries used
 
 ## Backend
 
