@@ -33,7 +33,6 @@ const styles = theme => ({
     },
     button: {
         marginTop: theme.spacing.unit * 2,
-        margin: theme.spacing.unit,
     },
 });
 
@@ -53,11 +52,8 @@ class LoginPage extends Component {
     };
 
     handleSubmit = () => {
-        
-    };
-
-    handleCancelClick = () => {
-        
+        localStorage.setItem('username', this.state.formData.username);
+        localStorage.setItem('password', this.state.formData.password);
     };
 
     render() {
@@ -92,12 +88,10 @@ class LoginPage extends Component {
                                 validators={['required']} 
                                 errorMessages={['This field is required']}/>
                                 
-                                <Button color="primary" size = 'large' variant="contained" type="submit" className = {classes.button}>
+                                <Button color = "primary" size = 'large' variant = "contained" type = "submit" className = {classes.button}>
                                     Sign in
                                 </Button>
-                                <Button className = {classes.button} size = 'large' variant="contained" color= 'default' onClick = {this.handleCancelClick}> 
-                                    Cancel 
-                                </Button>
+
                             </ValidatorForm>
                         </Paper>
                     </Grid>
