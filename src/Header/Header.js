@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import LoginButton from './Buttons/Unauthorized/LoginButton'
+import LogoutButton from './Buttons/Authorized/LogoutButton';
 
 const styles = {
     root: {
@@ -25,6 +26,7 @@ class Header extends Component {
                             Insurance agent workstation
                         </Typography>
                         <LoginButton/>
+                        <LogoutButton/>
                     </Toolbar>
                 </AppBar>
             </div>
