@@ -14,7 +14,7 @@ Material UI (visual components)
 
 Axios (requests)
 
-React DOM router (routing) libraries used
+React DOM router (routing)
 
 ## Backend
 
