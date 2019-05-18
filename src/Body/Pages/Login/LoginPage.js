@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Grid, Paper, Typography, Button } from "@material-ui/core";
 import { withStyles } from "@material-ui/core";
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { compose } from "redux";
+import { withRouter } from 'react-router-dom'
 
 const styles = theme => ({
     root: {
@@ -54,6 +56,7 @@ class LoginPage extends Component {
     handleSubmit = () => {
         localStorage.setItem('username', this.state.formData.username);
         localStorage.setItem('password', this.state.formData.password);
+        this.props.history.push('/clients')
     };
 
     render() {
@@ -104,4 +107,4 @@ class LoginPage extends Component {
     
 }
 
-export default withStyles(styles)(LoginPage)
+export default compose ( withStyles(styles), withRouter)(LoginPage)

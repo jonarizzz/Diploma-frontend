@@ -5,14 +5,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import LogoutButton from './Buttons/LogoutButton';
 
-const styles = {
+const styles =  theme => ({
     root: {
-      flexGrow: 1,
+        marginBottom: theme.spacing.unit,
     },
     grow: {
       flexGrow: 1,
     },
-};
+});
 
 class Header extends Component {
     render(){
