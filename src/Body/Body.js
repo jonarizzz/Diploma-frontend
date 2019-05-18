@@ -1,12 +1,22 @@
 import React, {Component} from 'react'
 import LoginPage from './Pages/Login/LoginPage';
+import { Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom'
+import ClientsPage from './Pages/Clients/ClientsPage';
+import PersonalPage from './Pages/Personal/PersonalPage';
+import PoliciesPage from './Pages/Policies/PoliciesPage';
 
 class Body extends Component {
     render(){
         return(
-            <div>
-                <LoginPage/>
-            </div>
+            <main>
+                <Switch>
+                    <Route exact path = '/' component = {LoginPage}/>
+                    <Route path = '/clients' component = {ClientsPage}/>
+                    <Route path = '/user' component = {PersonalPage}/>
+                    <Route path = '/policies' component = {PoliciesPage}/>
+                </Switch>
+            </main>
         )
     }
 }

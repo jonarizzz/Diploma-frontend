@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
-class Content extends Component {
+class PoliciesPage extends Component {
     render(){
         return(
             <div>
-                Content component
+                Policies page component
             </div>
         )
     }
 }
 
-export default Content
+export default PoliciesPage

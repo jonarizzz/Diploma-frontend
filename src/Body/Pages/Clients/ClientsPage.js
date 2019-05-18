@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
-class PersonalPage extends Component {
+class ClientsPage extends Component {
     render(){
         return(
             <div>
-                Personal page component
+                Consumer page component
             </div>
         )
     }
 }
 
-export default PersonalPage
+export default ClientsPage
