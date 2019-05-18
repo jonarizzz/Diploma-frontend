@@ -23,7 +23,6 @@ class ClientsList extends Component {
                         <ListElementsLoader/>
                     </Paper>
                 </Grid>
-                <ListElementsLoader/>
             </Grid>
         )
     }

@@ -6,7 +6,6 @@ class ClientsPage extends Component {
     render(){
         return(
             <div>
-                Clients page component
                 <NewClientButton/>
                 <ClientsList/>
             </div>
