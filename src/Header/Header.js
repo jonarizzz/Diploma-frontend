@@ -4,6 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import LogoutButton from './Buttons/LogoutButton';
+import ClientsButton from './Buttons/ClientsButton'
+import PoliciesButton from './Buttons/PoliciesButton';
 
 const styles =  theme => ({
     root: {
@@ -24,6 +26,8 @@ class Header extends Component {
                         <Typography variant="h6" color="inherit" className={classes.grow}>
                             Insurance agent workstation
                         </Typography>
+                        <ClientsButton/>
+                        <PoliciesButton/>
                         <LogoutButton/>
                     </Toolbar>
                 </AppBar>

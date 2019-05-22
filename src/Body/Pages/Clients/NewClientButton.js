@@ -13,7 +13,7 @@ class NewClientButton extends Component {
         return(
             <div>
                 <Grid container className = {classes.gridContainer}>
-                    <Button variant = 'contained' className = {classes.button} fullWidth>
+                    <Button variant = 'contained' className = {classes.button} fullWidth disableRipple>
                         <Typography variant = 'title' color = 'textSecondary'>
                             Add new client
                         </Typography>
