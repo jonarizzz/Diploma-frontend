@@ -3,9 +3,10 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import LogoutButton from './Buttons/LogoutButton';
+//import LogoutButton from './Buttons/LogoutButton';
 import ClientsButton from './Buttons/ClientsButton'
 import PoliciesButton from './Buttons/PoliciesButton';
+import PersonalButton from './Buttons/PersonalButton'
 
 const styles =  theme => ({
     root: {
@@ -28,7 +29,7 @@ class Header extends Component {
                         </Typography>
                         <ClientsButton/>
                         <PoliciesButton/>
-                        <LogoutButton/>
+                        <PersonalButton/>
                     </Toolbar>
                 </AppBar>
             </div>

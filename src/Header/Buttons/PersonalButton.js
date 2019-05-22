@@ -10,20 +10,20 @@ const styles = theme => ({
     
 })
 
-class PoliciesButton extends Component{
+class PersonalButton extends Component{
 
     handleClick = () => {
-        this.props.history.push('/policies');
+        this.props.history.push('/user');
     }
 
     render(){
         const {classes} = this.props;
         return(
             <div>
-                <Button variant = 'contained' className = {classes.button} onClick = {this.handleClick}> Policies</Button>
+                <Button variant = 'contained' className = {classes.button} onClick = {this.handleClick}> Personal</Button>
             </div>
         )
     }
 }
 
-export default compose(withRouter, withStyles(styles)) (PoliciesButton)
+export default compose(withRouter, withStyles(styles)) (PersonalButton)

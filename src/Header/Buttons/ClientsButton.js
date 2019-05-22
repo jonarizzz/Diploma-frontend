@@ -13,14 +13,14 @@ const styles = theme => ({
 class ClientsButton extends Component{
 
     handleClick = () => { 
-
+        this.props.history.push('/clients');
     }
 
     render(){
         const {classes} = this.props;
         return(
             <div>
-                <Button variant = 'outlined' className = {classes.button} onClick = {this.handleClick}> Clients</Button>
+                <Button variant = 'contained' className = {classes.button} onClick = {this.handleClick}> Clients</Button>
             </div>
         )
     }
