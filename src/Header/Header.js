@@ -3,17 +3,18 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import LoginButton from './Buttons/Unauthorized/LoginButton'
-import LogoutButton from './Buttons/Authorized/LogoutButton';
+import LogoutButton from './Buttons/LogoutButton';
+import ClientsButton from './Buttons/ClientsButton'
+import PoliciesButton from './Buttons/PoliciesButton';
 
-const styles = {
+const styles =  theme => ({
     root: {
-      flexGrow: 1,
+        marginBottom: theme.spacing.unit,
     },
     grow: {
       flexGrow: 1,
     },
-};
+});
 
 class Header extends Component {
     render(){
@@ -25,7 +26,8 @@ class Header extends Component {
                         <Typography variant="h6" color="inherit" className={classes.grow}>
                             Insurance agent workstation
                         </Typography>
-                        <LoginButton/>
+                        <ClientsButton/>
+                        <PoliciesButton/>
                         <LogoutButton/>
                     </Toolbar>
                 </AppBar>

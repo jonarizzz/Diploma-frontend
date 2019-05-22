@@ -9,10 +9,15 @@ const styles = theme => ({
 })
 
 class LogoutButton extends Component {
+    handleClick = () =>{
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+    };
+    
     render(){
         const {classes} = this.props;
         return(
-            <Button color = 'secondary' variant = 'contained' className = {classes.button}> Logout </Button>
+            <Button color = 'secondary' variant = 'contained' className = {classes.button} onClick = {this.handleClick}> Logout </Button>
         )
     }
 }
