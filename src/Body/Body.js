@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import LoginPage from './Pages/Login/LoginPage';
+// import LoginPage from './Pages/Login/LoginPage';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom'
 import ClientsPage from './Pages/Clients/ClientsPage';
@@ -11,8 +11,7 @@ class Body extends Component {
         return(
             <main>
                 <Switch>
-                    <Route exact path = '/' component = {LoginPage}/>
-                    <Route path = '/clients' component = {ClientsPage}/>
+                    <Route exact path = '/clients' component = {ClientsPage}/>
                     <Route path = '/user' component = {PersonalPage}/>
                     <Route path = '/policies' component = {PoliciesPage}/>
                 </Switch>
@@ -22,3 +21,5 @@ class Body extends Component {
 }
 
 export default Body
+
+//<Route exact path = '/' component = {LoginPage}/>

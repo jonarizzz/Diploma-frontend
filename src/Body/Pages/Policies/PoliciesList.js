@@ -5,6 +5,7 @@ import PoliciesListLoader from './PoliciesListLoader';
 const styles = theme => ({
     paper: {
         margin: theme.spacing.unit,
+        padding: theme.spacing.unit,
         background: '#bdbdbd'
     }
 })
