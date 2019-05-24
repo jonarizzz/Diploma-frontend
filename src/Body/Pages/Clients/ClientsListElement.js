@@ -1,13 +1,23 @@
 import React, {Component} from 'react'
-import { Grid } from '@material-ui/core';
+import { Grid, Paper, withStyles } from '@material-ui/core';
+
+const styles = theme => ({
+    paper: {
+        padding: theme.spacing.unit,
+        margin: theme.spacing.unit
+    }
+})
 
 class ClientsListElement extends Component {
     render (){
+        const {classes} = this.props;
         return (
             <div>
                 <Grid container>
                     <Grid item xs = {12}>
-                        {this.props.number + '  client'}
+                        <Paper className = {classes.paper}>
+                            1
+                        </Paper>
                     </Grid>
                 </Grid>
             </div>
@@ -15,4 +25,4 @@ class ClientsListElement extends Component {
     }
 }
 
-export default ClientsListElement
+export default withStyles(styles) (ClientsListElement)

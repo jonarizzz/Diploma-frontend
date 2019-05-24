@@ -8,7 +8,7 @@ const styles = theme => ({
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing.unit * 2,
+        padding: theme.spacing.unit,
         margin: theme.spacing.unit,
         background: '#bdbdbd'
     },
