@@ -8,7 +8,10 @@ const styles = theme => ({
     },
     containerGrids: {
         marginTop: theme.spacing.unit
-        }
+    }, 
+    numberField: {
+        align: 'center'
+    }
 })
 
 class PoliciesListElement extends Component{
@@ -21,17 +24,19 @@ class PoliciesListElement extends Component{
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon = {<ExpandMoreIcon/>}>
                         <Grid container spacing = {16}>
-                            <Grid item xs={4}>
-                                <TextField fullWidth variant = 'outlined' disabled value = '№ 10903515'/>
+                            <Grid item xs={3}>
+                                <TextField fullWidth variant = 'outlined' multiline disabled value = {'№ ' + this.props.number} className = {classes.numberField}/>
                             </Grid>
-                            <Grid item xs = {8}>
+                            <Grid item xs = {9}>
                                 <Grid container>
                                     <Grid item xs = {12} className = {classes.containerGrids}>
-                                        Тип страховки (частичное страхование здоровья)
+                                        <Typography>
+                                            <b>{this.props.insuranceType}</b>
+                                        </Typography>
                                     </Grid>
                                     <Grid item xs = {12} className = {classes.containerGrids}>
                                         <Typography variant = 'body1' color='textSecondary'>
-                                            Поддтип страховки (правая рука застрахованана от переломов)
+                                            {this.props.insuranceTypeSpecific}
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -41,7 +46,7 @@ class PoliciesListElement extends Component{
                     <ExpansionPanelDetails>
                         <Grid container spacing = {8}>
                             <Grid item xs = {12}>
-                                Фамилия Имя застрахованого клиета (Ссылка на личную страницу)
+                                {this.props.secondName + ' ' + this.props.firstName}
                             </Grid>
                             <Grid item>
                                 Сумма страхования, срок страхования, объем и частота выплат, другая информация по страховке и клиенту
