@@ -33,9 +33,9 @@ class ClientsListElement extends Component {
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Grid container spacing = {8}>
-                                <Grid item xs = {12}>Passport data:</Grid>
-                                <Grid item xs = {4}>series: {this.props.passportSeries}</Grid>
-                                <Grid item xs = {8}>number: {this.props.passportNumber}</Grid>
+                                <Grid item xs = {12}>Паспортные данные: </Grid>
+                                <Grid item xs = {3}>серия: {this.props.passportSeries}</Grid>
+                                <Grid item xs = {9}>номер: {this.props.passportNumber}</Grid>
                             </Grid>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>

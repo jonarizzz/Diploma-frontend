@@ -13,7 +13,7 @@ export default async function getClients (){
         const name = response.data[i].name;
         const patronymic = response.data[i].patronymic;
         const passportId = response.data[i].passportId;
-        const getPassportURL = 'http://localhost:8080/passports';
+        const getPassportURL = 'http://localhost:8080/passports/all';
         const passportQueryResponse = await Axios.get(getPassportURL);
         const passportSeries = passportQueryResponse.data[passportId - 1].series;
         const passportNumber = passportQueryResponse.data[passportId - 1].number;
