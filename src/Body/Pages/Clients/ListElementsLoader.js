@@ -1,15 +1,28 @@
 import React, {Component} from 'react'
-import ClientsListElement from './ClientsListElement';
+import getClients from '../../../_functional/getClients';
+
+var elements = [];
 
 class ListElementsLoader extends Component {
+
+    state = {
+        loading: true,
+    }
+
+    loadElements = async() => {
+        this.setState({loading: true})
+        elements = await getClients();
+        this.setState({loading: false});
+    }
+
+    componentDidMount(){
+        this.loadElements();
+    }
+
     render(){
         return(
             <div>
-                <ClientsListElement number = '1'/>
-                <ClientsListElement number = '2'/>
-                <ClientsListElement number = '3'/>
-                <ClientsListElement number = '4'/>
-                <ClientsListElement number = '5'/>
+                {this.state.loading ? '' : <div>{elements}</div>}
             </div>
         )
     }

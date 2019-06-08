@@ -48,8 +48,14 @@ class PoliciesListElement extends Component{
                             <Grid item xs = {12}>
                                 {this.props.secondName + ' ' + this.props.firstName}
                             </Grid>
-                            <Grid item>
-                                Сумма страхования, срок страхования, объем и частота выплат, другая информация по страховке и клиенту
+                            <Grid item xs = {6}>
+                                Сумма страхования: 200 беларусских рублей
+                            </Grid>
+                            <Grid item xs = {6}>
+                                Срок страхования: 4 месяца
+                            </Grid>
+                            <Grid item xs = {6}>
+                                Страховые случаи: несчастный случай
                             </Grid>
                         </Grid>
                     </ExpansionPanelDetails>
