@@ -26,7 +26,7 @@ class NewPolicyButton extends Component {
                 <Grid container className = {classes.gridContainer}>
                     <Button variant = 'contained' className = {classes.button} fullWidth disableRipple onClick = {this.handleClickOpen}>
                         <Typography variant = 'title' color = 'textSecondary'>
-                            Add new policy
+                            Добавить новый полис
                         </Typography>
                     </Button>
                 </Grid>
