@@ -20,7 +20,7 @@ class PoliciesButton extends Component{
         const {classes} = this.props;
         return(
             <div>
-                <Button variant = 'contained' className = {classes.button} onClick = {this.handleClick}> Policies</Button>
+                <Button variant = 'contained' className = {classes.button} onClick = {this.handleClick}> Полисы</Button>
             </div>
         )
     }

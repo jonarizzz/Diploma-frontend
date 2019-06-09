@@ -25,7 +25,7 @@ class Header extends Component {
                 <AppBar position = 'static'>
                     <Toolbar>
                         <Typography variant="h6" color="inherit" className={classes.grow}>
-                            Insurance agent workstation
+                            Рабочее место страхового агента
                         </Typography>
                         <ClientsButton/>
                         <PoliciesButton/>

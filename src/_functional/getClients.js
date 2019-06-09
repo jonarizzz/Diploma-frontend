@@ -19,5 +19,5 @@ export default async function getClients (){
         const passportNumber = passportQueryResponse.data[passportId - 1].number;
         elements.push(<ClientsListElement number={id} surname={surname} name={name} patronymic={patronymic} passportSeries={passportSeries} passportNumber={passportNumber}/>)
     }
-    return elements;
+    return elements.reverse();
 }

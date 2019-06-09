@@ -23,7 +23,7 @@ class ClientsListElement extends Component {
                                 <Grid item xs = {9}>
                                     <Grid container>
                                         <Grid item xs = {12}>
-                                            <Typography fullWidth align='center'>
+                                            <Typography fullWidth align='center' variant='h5' color='textSecondary'>
                                                 <b>{this.props.surname + ' ' + this.props.name + ' ' + this.props.patronymic}</b>
                                             </Typography>
                                         </Grid>
@@ -33,9 +33,15 @@ class ClientsListElement extends Component {
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Grid container spacing = {8}>
-                                <Grid item xs = {12}>Паспортные данные: </Grid>
-                                <Grid item xs = {3}>серия: {this.props.passportSeries}</Grid>
-                                <Grid item xs = {9}>номер: {this.props.passportNumber}</Grid>
+                                <Grid item xs = {12}>
+                                    <Typography><b>Паспортные данные:</b></Typography>
+                                </Grid>
+                                <Grid item xs = {3}>
+                                    <Typography color='textSecondary'>серия:</Typography><Typography>{this.props.passportSeries}</Typography>
+                                </Grid>
+                                <Grid item xs = {9}>
+                                    <Typography color='textSecondary'>номер: </Typography><Typography>{this.props.passportNumber}</Typography>
+                                </Grid>
                             </Grid>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>

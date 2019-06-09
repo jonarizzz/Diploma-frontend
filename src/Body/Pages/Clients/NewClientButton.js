@@ -29,13 +29,13 @@ class NewClientButton extends Component {
                 'Content-Type': 'application/json',
             }
         });
-        
+        console.log(passportResponse.data);
         const clientURL = 'http://localhost:8080/clients/add'
         const dataClient = JSON.stringify({
             surname: this.state.surname,
             name: this.state.name,
             patronymic: this.state.patronymic,
-            passportId: passportResponse.data[0]
+            passportId: passportResponse.data
         });
         await Axios.post(clientURL, dataClient,{
             headers: {
@@ -46,6 +46,7 @@ class NewClientButton extends Component {
 
     handleClickAdding = () => {
         this.sendData();
+        this.handleClickClose();
     }
 
     state = {
@@ -64,7 +65,7 @@ class NewClientButton extends Component {
                 <Grid container className = {classes.gridContainer}>
                     <Button variant = 'contained' className = {classes.button} fullWidth disableRipple onClick = {this.handleClickOpen}>
                         <Typography variant = 'title' color = 'textSecondary'>
-                            Add new client
+                            Добавить нового клиента
                         </Typography>
                     </Button>
                 </Grid>
@@ -74,41 +75,41 @@ class NewClientButton extends Component {
                     onClose = {this.handleClickClose}>
                     <DialogTitle>
                         <Typography variant='display2'>
-                            Adding a new client
+                            Добавление клиента
                         </Typography>
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            Please insert user data:
+                            Пожалуйста, введите пользовательские данные:
                             <br/>
                             <br/>
                         </DialogContentText>
                         <Grid container spacing = {8}>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Surname' fullWidth 
+                                <TextField variant = 'outlined' label = 'Фамилия' fullWidth 
                                 value={this.state.surname} onChange={e => this.setState({surname: e.target.value})}/>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Name' fullWidth
+                                <TextField variant = 'outlined' label = 'Имя' fullWidth
                                 value={this.state.name} onChange={e => this.setState({name: e.target.value})}/>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Patronymic' fullWidth
+                                <TextField variant = 'outlined' label = 'Отчество' fullWidth
                                 value={this.state.patronymic} onChange={e => this.setState({patronymic: e.target.value})}/>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Passport series' fullWidth
+                                <TextField variant = 'outlined' label = 'Серия паспорта' fullWidth
                                 value={this.state.series} onChange={e => this.setState({series: e.target.value})}/>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Passport number' fullWidth
+                                <TextField variant = 'outlined' label = 'Номер паспорта' fullWidth
                                 value={this.state.number} onChange={e => this.setState({number: e.target.value})}/>
                             </Grid>
                             <Grid item xs = {6}>
-                                <Button variant = 'contained' color = 'primary' fullWidth onClick = {this.handleClickAdding}>Add</Button>
+                                <Button variant = 'contained' color = 'primary' fullWidth onClick = {this.handleClickAdding}>Добавить</Button>
                             </Grid>
                             <Grid item xs = {6}>
-                                <Button variant = 'contained' color = 'inherit' fullWidth onClick = {this.handleClickClose}>Cancel</Button>
+                                <Button variant = 'contained' color = 'inherit' fullWidth onClick = {this.handleClickClose}>Отмена</Button>
                             </Grid>
                         </Grid>
                     </DialogContent>

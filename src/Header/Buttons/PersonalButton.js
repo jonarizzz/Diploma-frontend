@@ -20,7 +20,7 @@ class PersonalButton extends Component{
         const {classes} = this.props;
         return(
             <div>
-                <Button variant = 'contained' className = {classes.button} onClick = {this.handleClick}> Personal</Button>
+                <Button variant = 'contained' className = {classes.button} onClick = {this.handleClick}> Кабинет</Button>
             </div>
         )
     }
