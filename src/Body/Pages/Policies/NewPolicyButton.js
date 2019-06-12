@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Grid, Button, withStyles, Typography, Dialog, DialogTitle, DialogContent, DialogContentText, TextField} from '@material-ui/core'
+import {Grid, Button, withStyles, Typography, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, } from '@material-ui/core'
 
 const styles = theme => ({
     button: {
@@ -16,9 +16,18 @@ class NewPolicyButton extends Component {
         this.setState({dialogOpened : false})
     };
 
+    sendData = async() => {
+        const policyURL = 'http://localhost:8080/policies/add'
+        const policyData = JSON.stringify({
+            
+        })
+    }
     state = {
         dialogOpened : false,
+        clientId: '',
+
     }
+
     render (){
         const {classes} = this.props;
         return(
@@ -35,36 +44,33 @@ class NewPolicyButton extends Component {
                     onClose = {this.handleClickClose}>
                     <DialogTitle>
                         <Typography variant='display2'>
-                            Adding a new policy
+                            Добавление полиса
                         </Typography>
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            Please insert policy data:
+                            Пожалуйста введите данные:
                             <br/>
                             <br/>
                         </DialogContentText>
                         <Grid container spacing = {8}>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Client' fullWidth/>
+                                <TextField variant = 'outlined' label = 'Клиент' fullWidth/>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Insurance type' fullWidth/>
+                                <TextField variant = 'outlined' label = 'Тип страхования' fullWidth/>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Insurance case' fullWidth/>
+                                <TextField variant = 'outlined' label = 'Страховой случай' fullWidth/>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Passport number' fullWidth/>
-                            </Grid>
-                            <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Insurance cost' fullWidth/>
+                                <TextField variant = 'outlined' label = 'Стоимость страховки' fullWidth/>
                             </Grid>
                             <Grid item xs = {6}>
-                                <Button variant = 'contained' color = 'primary' fullWidth>Add</Button>
+                                <Button variant = 'contained' color = 'primary' fullWidth>Добавить</Button>
                             </Grid>
                             <Grid item xs = {6}>
-                                <Button variant = 'contained' color = 'inherit' fullWidth onClick = {this.handleClickClose}>Cancel</Button>
+                                <Button variant = 'contained' color = 'inherit' fullWidth onClick = {this.handleClickClose}>Отмена</Button>
                             </Grid>
                         </Grid>
                     </DialogContent>

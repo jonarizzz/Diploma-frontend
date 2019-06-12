@@ -31,12 +31,12 @@ class PoliciesListElement extends Component{
                                 <Grid container>
                                     <Grid item xs = {12} className = {classes.containerGrids}>
                                         <Typography>
-                                            <b>{this.props.insuranceType}</b>
+                                            <b>{this.props.type}</b>
                                         </Typography>
                                     </Grid>
                                     <Grid item xs = {12} className = {classes.containerGrids}>
                                         <Typography variant = 'body1' color='textSecondary'>
-                                            {this.props.insuranceTypeSpecific}
+                                            {this.props.secondName + ' ' + this.props.firstName}
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -46,16 +46,10 @@ class PoliciesListElement extends Component{
                     <ExpansionPanelDetails>
                         <Grid container spacing = {8}>
                             <Grid item xs = {12}>
-                                {this.props.secondName + ' ' + this.props.firstName}
+                                Сумма страхования: {this.props.sum} рублей
                             </Grid>
-                            <Grid item xs = {6}>
-                                Сумма страхования: 200 беларусских рублей
-                            </Grid>
-                            <Grid item xs = {6}>
-                                Срок страхования: 4 месяца
-                            </Grid>
-                            <Grid item xs = {6}>
-                                Страховые случаи: несчастный случай
+                            <Grid item xs = {12}>
+                                Страховой случай: {this.props.case}
                             </Grid>
                         </Grid>
                     </ExpansionPanelDetails>

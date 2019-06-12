@@ -23,8 +23,10 @@ class ClientsListElement extends Component {
                                 <Grid item xs = {9}>
                                     <Grid container>
                                         <Grid item xs = {12}>
-                                            <Typography fullWidth align='center' variant='h6' color='textSecondary'>
-                                                <b>{this.props.surname + ' ' + this.props.name + ' ' + this.props.patronymic}</b>
+                                            <Typography>
+                                                <b>
+                                                    {this.props.surname + ' ' + this.props.name + ' ' + this.props.patronymic}
+                                                </b>
                                             </Typography>
                                         </Grid>
                                     </Grid>
