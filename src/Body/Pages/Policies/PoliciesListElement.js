@@ -46,10 +46,20 @@ class PoliciesListElement extends Component{
                     <ExpansionPanelDetails>
                         <Grid container spacing = {8}>
                             <Grid item xs = {12}>
-                                Сумма страхования: {this.props.sum} рублей
+                                <Typography>
+                                    <b>Сумма страхования:</b>
+                                </Typography>
+                                <Typography>
+                                    {this.props.sum} рублей
+                                </Typography>
                             </Grid>
                             <Grid item xs = {12}>
-                                Страховой случай: {this.props.case}
+                                <Typography>
+                                    <b>Страховой случай:</b>
+                                </Typography>
+                                <Typography>
+                                    {this.props.case}
+                                </Typography>
                             </Grid>
                         </Grid>
                     </ExpansionPanelDetails>
