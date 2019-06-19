@@ -12,16 +12,20 @@ var clients = [];
 var types = [];
 var cases = [];
 
+
+
 class NewPolicyButton extends Component {
     handleClickOpen = () => {
-        this.setState({dialogOpened : true})
+        this.setState({dialogOpened : true});
     };
 
     handleClickClose = () => {
         clients = [];
         types = [];
         cases = [];
-        console.log(this.state.test);
+        this.setState({clientId : ''});
+        this.setState({typeId : ''});
+        this.setState({caseId : ''});
         this.setState({dialogOpened : false})
     };
 
@@ -45,7 +49,7 @@ class NewPolicyButton extends Component {
                 var client = <MenuItem value = {id}>{surname + ' ' + name + ' ' + patronymic}</MenuItem>;
                 clients.push(client);
             }
-        }    
+        }
     }
 
     loadTypes = async() => {
@@ -54,7 +58,10 @@ class NewPolicyButton extends Component {
             const response = await Axios.get(URL);
             const elementsAmount = response.data.length;
             for (var i = 0; i < elementsAmount; i++){
-                types.push(response.data[i].type_name);
+                const id = response.data[i].id;
+                const name = response.data[i].type_name;
+                const type = <MenuItem value = {id}>{name}</MenuItem>
+                types.push(type);
             }
         }
     }
@@ -65,25 +72,39 @@ class NewPolicyButton extends Component {
             const response = await Axios.get(URL);
             const elementsAmount = response.data.length;
             for (var i = 0; i < elementsAmount; i++){
-                cases.push(response.data[i].case_name);
+                const id = response.data[i].id;
+                const name = response.data[i].case_name;
+                const element = <MenuItem value = {id}>{name}</MenuItem>
+                cases.push(element);
             }
         }
     }
 
     handleClientChange = (event) => {
-        this.setState({test : event.target.value});
+        this.setState({clientId : event.target.value});
+    }
+
+    handleTypeChange = (event) => {
+        this.setState({typeId : event.target.value});
+    }
+
+    handleCasesChange = (event) => {
+        this.setState({caseId : event.target.value});
     }
 
     state = {
         dialogOpened : false,
         clientId: '',
-        test: '',
+        typeId: '',
+        caseId: '',
+        cost: '',
     }
 
     render (){
         const {classes} = this.props;
         this.loadClients();
         this.loadTypes();
+        this.loadCases();
         return(
             <div>
                 <Grid container className = {classes.gridContainer}>
@@ -105,27 +126,40 @@ class NewPolicyButton extends Component {
                         <DialogContentText>
                             Пожалуйста введите данные:
                             <br/>
-                            <br/>
                         </DialogContentText>
                         <Grid container spacing = {16}>
                             <Grid item xs = {12}>
                                 <FormControl fullWidth>
                                     <InputLabel>Клиент</InputLabel>
                                     <Select
-                                        value = {this.state.test}
+                                        value = {this.state.clientId}
                                         onChange = {this.handleClientChange}>
                                         {clients}
                                     </Select>
                                 </FormControl>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Тип страхования' fullWidth/>
+                                <FormControl fullWidth>
+                                    <InputLabel>Тип страхования</InputLabel>
+                                    <Select
+                                        value = {this.state.typeId}
+                                        onChange = {this.handleTypeChange}>
+                                        {types}
+                                    </Select>
+                                </FormControl>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Страховой случай' fullWidth/>
+                                <FormControl fullWidth>
+                                    <InputLabel>Страховой случай</InputLabel>
+                                    <Select
+                                        value = {this.state.caseId}
+                                        onChange = {this.handleCasesChange}>
+                                        {cases}
+                                    </Select>
+                                </FormControl>
                             </Grid>
                             <Grid item xs = {12}>
-                                <TextField variant = 'outlined' label = 'Стоимость страховки' fullWidth/>
+                                <TextField variant = 'outlined' label = 'Стоимость страховки (белорусских рублей)' fullWidth onChange = {e => this.setState({cost: e.target.value})}/>
                             </Grid>
                             <Grid item xs = {6}>
                                 <Button variant = 'contained' color = 'primary' fullWidth>Добавить</Button>
