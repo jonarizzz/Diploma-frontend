@@ -21,6 +21,7 @@ class NewPolicyButton extends Component {
         clients = [];
         types = [];
         cases = [];
+        console.log(this.state.test);
         this.setState({dialogOpened : false})
     };
 
@@ -37,10 +38,11 @@ class NewPolicyButton extends Component {
             const response = await Axios.get(URL);
             const elementsAmount = response.data.length;
             for (var i = 0; i < elementsAmount; i++){
+                const id = response.data[i].id;
                 const surname = response.data[i].surname;
                 const name = response.data[i].name;
                 const patronymic = response.data[i].patronymic;
-                var client = [{surname}, {name}, {patronymic}];
+                var client = <MenuItem value = {id}>{surname + ' ' + name + ' ' + patronymic}</MenuItem>;
                 clients.push(client);
             }
         }    
@@ -68,10 +70,14 @@ class NewPolicyButton extends Component {
         }
     }
 
+    handleClientChange = (event) => {
+        this.setState({test : event.target.value});
+    }
+
     state = {
         dialogOpened : false,
         clientId: '',
-        
+        test: '',
     }
 
     render (){
@@ -105,7 +111,11 @@ class NewPolicyButton extends Component {
                             <Grid item xs = {12}>
                                 <FormControl fullWidth>
                                     <InputLabel>Клиент</InputLabel>
-                                    <Select value = {clients}/>
+                                    <Select
+                                        value = {this.state.test}
+                                        onChange = {this.handleClientChange}>
+                                        {clients}
+                                    </Select>
                                 </FormControl>
                             </Grid>
                             <Grid item xs = {12}>
