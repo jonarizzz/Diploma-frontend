@@ -15,6 +15,9 @@ var cases = [];
 class NewPolicyButton extends Component {
     handleClickOpen = () => {
         this.setState({dialogOpened : true});
+        this.loadClients();
+        this.loadTypes();
+        this.loadCases();
     };
 
     handleClickClose = () => {
@@ -45,47 +48,41 @@ class NewPolicyButton extends Component {
         this.handleClickClose();
     };
 
-    loadClients = async() => {
-        if (this.state.dialogOpened){
-            const URL = 'http://localhost:8080/clients/all';
-            const response = await Axios.get(URL);
-            const elementsAmount = response.data.length;
-            for (var i = 0; i < elementsAmount; i++){
-                const id = response.data[i].id;
-                const surname = response.data[i].surname;
-                const name = response.data[i].name;
-                const patronymic = response.data[i].patronymic;
-                var client = <MenuItem value = {id}>{surname + ' ' + name + ' ' + patronymic}</MenuItem>;
-                clients.push(client);
-            }
+    loadClients = async() => {       
+        const URL = 'http://localhost:8080/clients/all';
+        const response = await Axios.get(URL);
+        const elementsAmount = response.data.length;
+        for (var i = 0; i < elementsAmount; i++){
+            const id = response.data[i].id;
+            const surname = response.data[i].surname;
+            const name = response.data[i].name;
+            const patronymic = response.data[i].patronymic;
+            var client = <MenuItem value = {id}>{surname + ' ' + name + ' ' + patronymic}</MenuItem>;
+            clients.push(client);
         }
     }
 
     loadTypes = async() => {
-        if (this.state.dialogOpened){
-            const URL = 'http://localhost:8080/types/all';
-            const response = await Axios.get(URL);
-            const elementsAmount = response.data.length;
-            for (var i = 0; i < elementsAmount; i++){
-                const id = response.data[i].id;
-                const name = response.data[i].type_name;
-                const type = <MenuItem value = {id}>{name}</MenuItem>
-                types.push(type);
-            }
+        const URL = 'http://localhost:8080/types/all';
+        const response = await Axios.get(URL);
+        const elementsAmount = response.data.length;
+        for (var i = 0; i < elementsAmount; i++){
+            const id = response.data[i].id;
+            const name = response.data[i].type_name;
+            const type = <MenuItem value = {id}>{name}</MenuItem>
+            types.push(type);
         }
     }
 
     loadCases = async() => {
-        if (this.state.dialogOpened){
-            const URL = 'http://localhost:8080/cases/all';
-            const response = await Axios.get(URL);
-            const elementsAmount = response.data.length;
-            for (var i = 0; i < elementsAmount; i++){
-                const id = response.data[i].id;
-                const name = response.data[i].case_name;
-                const element = <MenuItem value = {id}>{name}</MenuItem>
-                cases.push(element);
-            }
+        const URL = 'http://localhost:8080/cases/all';
+        const response = await Axios.get(URL);
+        const elementsAmount = response.data.length;
+        for (var i = 0; i < elementsAmount; i++){
+            const id = response.data[i].id;
+            const name = response.data[i].case_name;
+            const element = <MenuItem value = {id}>{name}</MenuItem>
+            cases.push(element);
         }
     }
 
@@ -111,9 +108,7 @@ class NewPolicyButton extends Component {
 
     render (){
         const {classes} = this.props;
-        this.loadClients();
-        this.loadTypes();
-        this.loadCases();
+        
         return(
             <div>
                 <Grid container className = {classes.gridContainer}>
