@@ -12,8 +12,6 @@ var clients = [];
 var types = [];
 var cases = [];
 
-
-
 class NewPolicyButton extends Component {
     handleClickOpen = () => {
         this.setState({dialogOpened : true});
@@ -32,8 +30,19 @@ class NewPolicyButton extends Component {
     sendData = async() => {
         const policyURL = 'http://localhost:8080/policies/add'
         const policyData = JSON.stringify({
-            
-        })
+            sum: this.state.cost,
+            clientId: this.state.clientId,
+            employeeId: 1,
+            insurance_type_id: this.state.typeId,
+            insurance_case_id: this.state.caseId,
+        });
+        const policyAddingResponse = await Axios.post(policyURL, policyData, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        console.log('New policy number', policyAddingResponse.data);
+        this.handleClickClose();
     };
 
     loadClients = async() => {
@@ -162,7 +171,7 @@ class NewPolicyButton extends Component {
                                 <TextField variant = 'outlined' label = 'Стоимость страховки (белорусских рублей)' fullWidth onChange = {e => this.setState({cost: e.target.value})}/>
                             </Grid>
                             <Grid item xs = {6}>
-                                <Button variant = 'contained' color = 'primary' fullWidth>Добавить</Button>
+                                <Button variant = 'contained' color = 'primary' fullWidth onClick = {this.sendData}>Добавить</Button>
                             </Grid>
                             <Grid item xs = {6}>
                                 <Button variant = 'contained' color = 'inherit' fullWidth onClick = {this.handleClickClose}>Отмена</Button>
